@@ -1,0 +1,6 @@
+module,phase,name,code,sequence,workflow-file,command,required,agent,options,description,output-location,outputs,
+cis,anytime,Innovation Strategy,IS,,_bmad/cis/workflows/innovation-strategy/workflow.yaml,bmad:cis:innovation-strategy,false,innovation-strategist,Create Mode,"Identify disruption opportunities and architect business model innovation",output_folder,"innovation strategy",
+cis,anytime,Problem Solving,PS,,_bmad/cis/workflows/problem-solving/workflow.yaml,bmad:cis:problem-solving,false,creative-problem-solver,Create Mode,"Apply systematic problem-solving methodologies to crack complex challenges",output_folder,"problem solution",
+cis,anytime,Design Thinking,DT,,_bmad/cis/workflows/design-thinking/workflow.yaml,bmad:cis:design-thinking,false,design-thinking-coach,Create Mode,"Guide human-centered design processes using empathy-driven methodologies",output_folder,"design thinking",
+cis,anytime,Brainstorming,BS,,_bmad/core/workflows/brainstorming/workflow.md,bmad:cis:brainstorming,false,brainstorming-coach,Create Mode,"Expert Guided Facilitation through a single or multiple techniques",output_folder,"brainstorming session",
+cis,anytime,Storytelling,ST,,_bmad/cis/workflows/storytelling/workflow.yaml,bmad:cis:storytelling,false,storyteller,Create Mode,"Craft compelling narratives using proven story frameworks and techniques",output_folder,"story",
