@@ -21,7 +21,7 @@
     "lint": "eslint . --ext .js,.cjs,.mjs,.yaml --max-warnings=0",
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.yaml --fix",
     "lint:md": "markdownlint-cli2 \"**/*.md\"",
-    "prepare": "husky",
+    "prepare": "husky || exit 0",
     "release": "npm run release:patch",
     "release:major": "npm version major && git push --follow-tags",
     "release:minor": "npm version minor && git push --follow-tags",
