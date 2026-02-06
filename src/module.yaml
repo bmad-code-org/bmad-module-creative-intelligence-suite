@@ -1,6 +1,6 @@
 code: cis
-name: "CIS: Creative Innovation Suite"
-header: "BMad Creative Innovation Suite (CIS) Module"
+name: "CIS: Creative Intelligence Suite"
+header: "BMad Creative Intelligence Suite (CIS) Module"
 subheader: "Unleash your creativity with the BMad CIS!"
 description: ""
 default_selected: false # This module will not be selected by default for new installations
