@@ -6,9 +6,8 @@ on:
       - main
     paths:
       - "docs/**"
-      - "src/modules/*/docs/**"
       - "website/**"
-      - "tools/build-docs.js"
+      - "tools/build-docs.mjs"
       - ".github/workflows/docs.yaml"
   workflow_dispatch:
 

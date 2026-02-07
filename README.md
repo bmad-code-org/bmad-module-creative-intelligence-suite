@@ -82,8 +82,10 @@ CIS includes team configurations for collaborative creativity:
 
 ## Documentation
 
-- [BMad Method Docs](http://docs.bmad-method.org)
-- [Creative Workflows Guide](http://docs.bmad-method.org/how-to/creative-workflows/)
+**[Creative Intelligence Suite Documentation](http://cis-docs.bmad-method.org)** — Tutorials, how-to guides, and reference
+
+- [Getting Started](http://cis-docs.bmad-method.org/tutorials/)
+- [BMad Method Docs](http://docs.bmad-method.org) — Core framework documentation
 
 ## Community
 

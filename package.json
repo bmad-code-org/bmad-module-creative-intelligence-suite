@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "bmad-creative-intelligence-suite",
+  "type": "module",
   "version": "0.1.4",
   "description": "A BMad MEthod Core Module that offers a suite of very creative agents and workflows",
   "keywords": [
@@ -16,6 +17,9 @@
   "main": "",
   "bin": {},
   "scripts": {
+    "docs:build": "node tools/build-docs.mjs",
+    "docs:dev": "astro dev --root website",
+    "docs:preview": "astro preview --root website",
     "format:check": "prettier --check \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix": "prettier --write \"**/*.{js,cjs,mjs,json,yaml}\"",
     "lint": "eslint . --ext .js,.cjs,.mjs,.yaml --max-warnings=0",
