@@ -1,7 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "bmad-creative-intelligence-suite",
-  "type": "module",
   "version": "0.1.4",
   "description": "A BMad MEthod Core Module that offers a suite of very creative agents and workflows",
   "keywords": [
@@ -14,6 +13,7 @@
   },
   "license": "MIT",
   "author": "Brian (BMad) Madison",
+  "type": "module",
   "main": "",
   "bin": {},
   "scripts": {
@@ -50,10 +50,6 @@
     "*.md": [
       "markdownlint-cli2"
     ]
-  },
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "fs-extra": "^11.3.0"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.6.0",
