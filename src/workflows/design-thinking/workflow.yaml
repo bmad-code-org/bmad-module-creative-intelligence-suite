@@ -1,6 +1,6 @@
 # Design Thinking Workflow Configuration
 name: "design-thinking"
-description: "Guide human-centered design processes using empathy-driven methodologies. Use when the user says 'lets run design thinking' or 'I want to apply design thinking'"
+description: 'Guide human-centered design processes using empathy-driven methodologies. Use when the user says "lets run design thinking" or "I want to apply design thinking"'
 
 # Critical variables load from config_source
 config_source: "{project-root}/_bmad/cis/config.yaml"

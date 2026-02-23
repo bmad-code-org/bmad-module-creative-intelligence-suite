@@ -1,6 +1,6 @@
 # Storytelling Workflow Configuration
 name: "storytelling"
-description: "Craft compelling narratives using story frameworks. Use when the user says 'help me with storytelling' or 'I want to create a narrative through storytelling'"
+description: 'Craft compelling narratives using story frameworks. Use when the user says "help me with storytelling" or "I want to create a narrative through storytelling"'
 
 # Critical variables load from config_source
 config_source: "{project-root}/_bmad/cis/config.yaml"
