@@ -17,5 +17,5 @@ agent:
 
   menu:
     - trigger: DT or fuzzy match on design-thinking
-      workflow: "{project-root}/_bmad/cis/workflows/design-thinking/workflow.yaml"
+      exec: "{project-root}/_bmad/cis/workflows/bmad-cis-design-thinking/SKILL.md"
       description: "[DT] Guide human-centered design process"

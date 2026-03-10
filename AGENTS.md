@@ -38,7 +38,7 @@ src/
 ├── agents/              # Agent definitions (*.agent.yaml)
 │   └── storyteller/     # Sidecar agents with persistent memory
 ├── workflows/           # Structured methodologies
-│   ├── design-thinking/
+│   ├── bmad-cis-design-thinking/
 │   ├── innovation-strategy/
 │   ├── problem-solving/
 │   └── storytelling/
@@ -58,17 +58,14 @@ Agents are defined in `*.agent.yaml` files with three core components:
 **Example agent trigger flow:**
 - User: `/cis-brainstorm` or just mentions "brainstorm"
 - Agent matches trigger → executes associated workflow
-- Workflow provides structured methodology via instructions.md
+- Workflow provides structured methodology via `workflow.md` or legacy `instructions.md`
 - Output generated using template.md
 
 ### Workflow Structure
 
-Each workflow directory contains:
-- `workflow.yaml` - Configuration with path references (uses `{project-root}` and `{config_source}` placeholders)
-- `instructions.md` - Methodological guidance for the AI
-- `template.md` - Output format structure
-- `*.csv` - Framework data (story types, techniques, etc.)
-- `README.md` - Human-readable overview
+Workflows currently ship in two source formats:
+- Legacy workflows keep `workflow.yaml` plus `instructions.md`, along with `template.md` and any `*.csv` support files.
+- Native skill workflows keep `SKILL.md`, `workflow.md`, `bmad-skill-manifest.yaml`, and only the companion files the skill needs at runtime.
 
 **Key workflow concepts:**
 - `standalone: true` - Workflows are self-contained
@@ -125,4 +122,4 @@ Keep messages under 72 characters. See CONTRIBUTING.md for PR guidelines.
 - All paths use forward slashes, even on Windows
 - `{project-root}` placeholder resolves to BMad project root
 - Agent IDs must follow `_bmad/cis/agents/{name}.md` format
-- Workflow paths are relative to `{project-root}/_bmad/`
+- Workflow and skill entry paths resolve from `{project-root}/_bmad/` after installation
