@@ -21,5 +21,5 @@ agent:
 
   menu:
     - trigger: ST or fuzzy match on story
-      exec: "{project-root}/_bmad/cis/workflows/storytelling/workflow.yaml"
+      exec: "{project-root}/_bmad/cis/workflows/bmad-cis-storytelling/SKILL.md"
       description: "[ST] Craft compelling narrative using proven frameworks"

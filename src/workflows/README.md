@@ -51,7 +51,7 @@ Five interactive workflows facilitating creative and strategic processes through
 
 **Output:** Root cause identification and solution strategies
 
-### [Storytelling](./storytelling)
+### [Storytelling](./bmad-cis-storytelling)
 
 **Purpose:** Craft compelling narratives
 
@@ -142,6 +142,15 @@ bmad-cis-problem-solving/
 ├── workflow.md
 ├── bmad-skill-manifest.yaml
 ├── solving-methods.csv
+└── template.md
+```
+
+```text
+bmad-cis-storytelling/
+├── SKILL.md
+├── workflow.md
+├── bmad-skill-manifest.yaml
+├── story-types.csv
 └── template.md
 ```
 
