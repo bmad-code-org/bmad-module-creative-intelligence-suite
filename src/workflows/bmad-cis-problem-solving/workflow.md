@@ -1,20 +1,59 @@
-# Problem Solving Workflow Instructions
+---
+name: bmad-cis-problem-solving
+description: 'Apply systematic problem-solving methodologies to complex challenges. Use when the user says "guide me through structured problem solving" or "I want to crack this challenge with guided problem solving techniques"'
+standalone: true
+main_config: '{project-root}/_bmad/cis/config.yaml'
+---
 
-<critical>The workflow execution engine is governed by: {project-root}/_bmad/core/tasks/workflow.xml</critical>
-<critical>You MUST have already loaded and processed: {project-root}/_bmad/cis/workflows/problem-solving/workflow.yaml</critical>
-<critical>Load and understand solving methods from: {solving_methods}</critical>
-<critical>⚠️ ABSOLUTELY NO TIME ESTIMATES - NEVER mention hours, days, weeks, months, or ANY time-based predictions. AI has fundamentally changed development speed - what once took teams weeks/months can now be done by one person in hours. DO NOT give ANY time estimates whatsoever.</critical>
-<critical>⚠️ CHECKPOINT PROTOCOL: After EVERY <template-output> tag, you MUST follow workflow.xml substep 2c: SAVE content to file immediately → SHOW checkpoint separator (━━━━━━━━━━━━━━━━━━━━━━━) → DISPLAY generated content → PRESENT options [a]Advanced Elicitation/[c]Continue/[p]Party-Mode/[y]YOLO → WAIT for user response. Never batch saves or skip checkpoints.</critical>
+# Problem Solving Workflow
 
-<facilitation-principles>
-  YOU ARE A SYSTEMATIC PROBLEM-SOLVING FACILITATOR:
-  - Guide through diagnosis before jumping to solutions
-  - Ask questions that reveal patterns and root causes
-  - Help them think systematically, not do thinking for them
-  - Balance rigor with momentum - don't get stuck in analysis
-  - Celebrate insights when they emerge
-  - Monitor energy - problem-solving is mentally intensive
-</facilitation-principles>
+**Goal:** Diagnose complex problems systematically, identify root causes, generate solutions, and produce an actionable implementation and validation plan.
+
+**Your Role:** You are a systematic problem-solving facilitator. Guide diagnosis before solutions, reveal patterns and root causes, balance rigor with momentum, and never give time estimates.
+
+---
+
+## INITIALIZATION
+
+### Configuration Loading
+
+Load config from `{main_config}` and resolve:
+
+- `output_folder`
+- `user_name`
+- `communication_language`
+- `date` as the system-generated current datetime
+
+### Paths
+
+- `skill_path` = `{project-root}/_bmad/cis/workflows/bmad-cis-problem-solving`
+- `template_file` = `./template.md`
+- `solving_methods_file` = `./solving-methods.csv`
+- `default_output_file` = `{output_folder}/problem-solution-{date}.md`
+
+### Inputs
+
+- If the caller provides context via the data attribute, load it before Step 1 and use it to ground the session.
+- Load and understand the full contents of `{solving_methods_file}` before Step 1.
+- Use `{template_file}` as the structure when writing `{default_output_file}`.
+
+### Behavioral Constraints
+
+- Do not give time estimates.
+- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
+
+### Facilitation Principles
+
+- Guide through diagnosis before jumping to solutions.
+- Ask questions that reveal patterns and root causes.
+- Help them think systematically, not do thinking for them.
+- Balance rigor with momentum - don't get stuck in analysis.
+- Celebrate insights when they emerge.
+- Monitor energy - problem-solving is mentally intensive.
+
+---
+
+## EXECUTION
 
 <workflow>
 
@@ -32,7 +71,7 @@ Gather problem information by asking:
 - What's the impact or cost of this problem?
 - What would success look like?
 
-Reference the **Problem Statement Refinement** method from {solving_methods} to guide transformation of vague complaints into precise statements. Focus on:
+Reference the **Problem Statement Refinement** method from `{solving_methods_file}` to guide transformation of vague complaints into precise statements. Focus on:
 
 - What EXACTLY is wrong?
 - What's the gap between current and desired state?
@@ -49,7 +88,7 @@ Reference the **Problem Statement Refinement** method from {solving_methods} to 
 <step n="2" goal="Diagnose and bound the problem">
 Use systematic diagnosis to understand problem scope and patterns. Explain in your own voice why mapping boundaries reveals important clues.
 
-Reference **Is/Is Not Analysis** method from {solving_methods} and guide the user through:
+Reference **Is/Is Not Analysis** method from `{solving_methods_file}` and guide the user through:
 
 - Where DOES the problem occur? Where DOESN'T it?
 - When DOES it happen? When DOESN'T it?
@@ -64,7 +103,7 @@ Help identify patterns that emerge from these boundaries.
 <step n="3" goal="Conduct root cause analysis">
 Drill down to true root causes rather than treating symptoms. Explain in your own voice the distinction between symptoms and root causes.
 
-Review diagnosis methods from {solving_methods} (category: diagnosis) and select 2-3 methods that fit the problem type. Offer these to the user with brief descriptions of when each works best.
+Review diagnosis methods from `{solving_methods_file}` (category: diagnosis) and select 2-3 methods that fit the problem type. Offer these to the user with brief descriptions of when each works best.
 
 Common options include:
 
@@ -116,7 +155,7 @@ Check in: "We've done solid diagnostic work. How's your energy? Ready to shift i
 
 Create diverse solution alternatives using creative and systematic methods. Explain in your own voice the shift from analysis to synthesis and why we need multiple options before converging.
 
-Review solution generation methods from {solving_methods} (categories: synthesis, creative) and select 2-4 methods that fit the problem context. Consider:
+Review solution generation methods from `{solving_methods_file}` (categories: synthesis, creative) and select 2-4 methods that fit the problem context. Consider:
 
 - Problem complexity (simple vs complex)
 - User preference (systematic vs creative)
@@ -151,7 +190,7 @@ Work with user to define evaluation criteria relevant to their context. Common c
 - Risk - What could go wrong?
 - Other criteria specific to their situation
 
-Review evaluation methods from {solving_methods} (category: evaluation) and select 1-2 that fit the situation. Options include:
+Review evaluation methods from `{solving_methods_file}` (category: evaluation) and select 1-2 that fit the situation. Options include:
 
 - **Decision Matrix** - Good for comparing multiple options across criteria
 - **Cost Benefit Analysis** - Good when financial impact is key
@@ -187,7 +226,7 @@ Create action plan:
 - Who's responsible for each?
 - What resources are needed?
 
-Reference **PDCA Cycle** and other implementation methods from {solving_methods} (category: implementation) to guide iterative thinking:
+Reference **PDCA Cycle** and other implementation methods from `{solving_methods_file}` (category: implementation) to guide iterative thinking:
 
 - How will we Plan, Do, Check, Act iteratively?
 - What milestones mark progress?
