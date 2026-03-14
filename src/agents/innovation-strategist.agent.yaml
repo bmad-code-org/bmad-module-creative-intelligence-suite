@@ -17,5 +17,5 @@ agent:
 
   menu:
     - trigger: IS or fuzzy match on innovation-strategy
-      workflow: "{project-root}/_bmad/cis/workflows/innovation-strategy/workflow.yaml"
+      exec: "{project-root}/_bmad/cis/workflows/bmad-cis-innovation-strategy/SKILL.md"
       description: "[IS] Identify disruption opportunities and business model innovation"

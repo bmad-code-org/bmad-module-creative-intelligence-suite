@@ -31,7 +31,7 @@ Five interactive workflows facilitating creative and strategic processes through
 
 **Output:** User empathy insights and rapid prototypes
 
-### [Innovation Strategy](./innovation-strategy)
+### [Innovation Strategy](./bmad-cis-innovation-strategy)
 
 **Purpose:** Identify disruption opportunities and business model innovation
 
@@ -124,6 +124,15 @@ bmad-cis-design-thinking/
 ├── workflow.md
 ├── bmad-skill-manifest.yaml
 ├── design-methods.csv
+└── template.md
+```
+
+```text
+bmad-cis-innovation-strategy/
+├── SKILL.md
+├── workflow.md
+├── bmad-skill-manifest.yaml
+├── innovation-frameworks.csv
 └── template.md
 ```
 
