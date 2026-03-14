@@ -21,7 +21,7 @@ Five interactive workflows facilitating creative and strategic processes through
 
 **Selection Modes:** User-selected, AI-recommended, random, or progressive
 
-### [Design Thinking](./design-thinking)
+### [Design Thinking](./bmad-cis-design-thinking)
 
 **Purpose:** Human-centered design through five phases
 
@@ -108,14 +108,23 @@ Edit `/_bmad/cis/config.yaml`:
 
 ## Workflow Structure
 
-Each workflow contains:
+Source workflows currently use two shapes during the native-skill transition:
 
-```
-workflow-name/
+```text
+legacy-workflow/
 ├── workflow.yaml      # Configuration
 ├── instructions.md    # Facilitation guide
 ├── techniques.csv     # Method library
-└── README.md         # Documentation
+└── README.md          # Documentation
+```
+
+```text
+bmad-cis-design-thinking/
+├── SKILL.md
+├── workflow.md
+├── bmad-skill-manifest.yaml
+├── design-methods.csv
+└── template.md
 ```
 
 ## Best Practices
