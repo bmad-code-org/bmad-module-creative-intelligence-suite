@@ -41,7 +41,7 @@ Five interactive workflows facilitating creative and strategic processes through
 
 **Output:** Strategic innovation roadmap
 
-### [Problem Solving](./problem-solving)
+### [Problem Solving](./bmad-cis-problem-solving)
 
 **Purpose:** Systematic challenge resolution
 
@@ -133,6 +133,15 @@ bmad-cis-innovation-strategy/
 ├── workflow.md
 ├── bmad-skill-manifest.yaml
 ├── innovation-frameworks.csv
+└── template.md
+```
+
+```text
+bmad-cis-problem-solving/
+├── SKILL.md
+├── workflow.md
+├── bmad-skill-manifest.yaml
+├── solving-methods.csv
 └── template.md
 ```
 

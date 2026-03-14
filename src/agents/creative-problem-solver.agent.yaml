@@ -17,5 +17,5 @@ agent:
 
   menu:
     - trigger: PS or fuzzy match on problem-solving
-      workflow: "{project-root}/_bmad/cis/workflows/problem-solving/workflow.yaml"
+      exec: "{project-root}/_bmad/cis/workflows/bmad-cis-problem-solving/SKILL.md"
       description: "[PS] Apply systematic problem-solving methodologies"
