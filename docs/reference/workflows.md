@@ -29,7 +29,7 @@ Technical reference for all CIS workflows including inputs, outputs, and invocat
 workflow brainstorming --data /path/to/context.md
 
 # Via agent
-/cis-agent-brainstorming-coach
+/bmad-cis-agent-brainstorming-coach
 > brainstorm
 ```
 
@@ -81,7 +81,7 @@ Carson has access to 36 techniques across 7 categories stored in `brainstorming-
 workflow design-thinking --data /path/to/user-research.md
 
 # Via agent
-/cis-agent-design-thinking-coach
+/bmad-cis-agent-design-thinking-coach
 > design-thinking
 ```
 
@@ -125,7 +125,7 @@ Maya has access to phase-specific design methods in `design-methods.csv`.
 workflow innovation-strategy --data /path/to/market-analysis.md
 
 # Via agent
-/cis-agent-innovation-strategist
+/bmad-cis-agent-innovation-strategist
 > innovation-strategy
 ```
 
@@ -174,7 +174,7 @@ Victor has access to strategic frameworks in `innovation-frameworks.csv`:
 workflow problem-solving --data /path/to/problem-brief.md
 
 # Via agent
-/cis-agent-creative-problem-solver
+/bmad-cis-agent-creative-problem-solver
 > problem-solving
 ```
 
@@ -224,7 +224,7 @@ Dr. Quinn has access to analytical frameworks in `solving-methods.csv`:
 workflow storytelling --data /path/to/brand-info.md
 
 # Via agent
-/cis-agent-storyteller
+/bmad-cis-agent-storyteller
 > story
 ```
 

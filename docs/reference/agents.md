@@ -166,12 +166,12 @@ Load any agent directly for conversation without triggering a workflow:
 
 | Command | Agent |
 | ------- | ----- |
-| `/cis-agent-brainstorming-coach` | Carson |
-| `/cis-agent-design-thinking-coach` | Maya |
-| `/cis-agent-innovation-strategist` | Victor |
-| `/cis-agent-creative-problem-solver` | Dr. Quinn |
-| `/cis-agent-storyteller` | Sophia |
-| `/cis-agent-presentation-master` | Caravaggio |
+| `/bmad-cis-agent-brainstorming-coach` | Carson |
+| `/bmad-cis-agent-design-thinking-coach` | Maya |
+| `/bmad-cis-agent-innovation-strategist` | Victor |
+| `/bmad-cis-agent-creative-problem-solver` | Dr. Quinn |
+| `/bmad-cis-agent-storyteller` | Sophia |
+| `/bmad-cis-agent-presentation-master` | Caravaggio |
 
 ## Communication Styles
 
