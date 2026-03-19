@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.1.9 - Mar 18, 2026
+
+* Patch conversion rename of folder and conversion to skill format
+
 ## v0.1.8 - Feb 23, 2026
 
 * Fix: use consistent YAML quoting in workflow descriptions
