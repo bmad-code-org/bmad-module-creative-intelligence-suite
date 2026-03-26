@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "bmad-creative-intelligence-suite",
-  "private": true,
   "version": "0.1.9",
+  "private": true,
   "description": "A BMad MEthod Core Module that offers a suite of very creative agents and workflows",
   "keywords": [
     "bmad",
