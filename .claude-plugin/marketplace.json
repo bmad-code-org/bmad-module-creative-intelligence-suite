@@ -3,12 +3,19 @@
   "owner": {
     "name": "Brian (BMad) Madison"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite",
+  "repository": "https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite",
+  "keywords": ["bmad", "creative", "brainstorming", "design-thinking", "innovation", "storytelling"],
   "plugins": [
     {
       "name": "bmad-creative-intelligence-suite",
       "source": "./",
-      "description": "Creative AI agents and workflows — brainstorming, problem-solving, design thinking, innovation strategy, storytelling, and visual presentations.",
+      "description": "A suite of creative AI agents and workflows for brainstorming, problem-solving, design thinking, innovation strategy, storytelling, and presentations. Part of the BMad Method ecosystem.",
       "version": "0.1.9",
+      "author": {
+        "name": "Brian (BMad) Madison"
+      },
       "skills": [
         "./src/skills/bmad-cis-agent-brainstorming-coach",
         "./src/skills/bmad-cis-agent-creative-problem-solver",
