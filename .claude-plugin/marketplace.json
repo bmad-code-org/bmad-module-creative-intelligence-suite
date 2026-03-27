@@ -1,0 +1,26 @@
+{
+  "name": "bmad-creative-intelligence-suite",
+  "owner": {
+    "name": "Brian (BMad) Madison"
+  },
+  "plugins": [
+    {
+      "name": "bmad-creative-intelligence-suite",
+      "source": "./",
+      "description": "Creative AI agents and workflows — brainstorming, problem-solving, design thinking, innovation strategy, storytelling, and visual presentations.",
+      "version": "0.1.9",
+      "skills": [
+        "./src/skills/bmad-cis-agent-brainstorming-coach",
+        "./src/skills/bmad-cis-agent-creative-problem-solver",
+        "./src/skills/bmad-cis-agent-design-thinking-coach",
+        "./src/skills/bmad-cis-agent-innovation-strategist",
+        "./src/skills/bmad-cis-agent-presentation-master",
+        "./src/skills/bmad-cis-agent-storyteller",
+        "./src/skills/bmad-cis-design-thinking",
+        "./src/skills/bmad-cis-innovation-strategy",
+        "./src/skills/bmad-cis-problem-solving",
+        "./src/skills/bmad-cis-storytelling"
+      ]
+    }
+  ]
+}
