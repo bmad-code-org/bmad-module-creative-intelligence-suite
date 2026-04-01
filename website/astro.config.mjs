@@ -41,12 +41,6 @@ export default defineConfig({
       title: 'Creative Intelligence Suite',
       tagline: 'Innovation, brainstorming, and problem-solving agents for the BMad Method.',
 
-      logo: {
-        light: './public/img/bmad-light.png',
-        dark: './public/img/bmad-dark.png',
-        alt: 'Creative Intelligence Suite',
-        replacesTitle: true,
-      },
       favicon: '/favicon.ico',
 
       // Social links
