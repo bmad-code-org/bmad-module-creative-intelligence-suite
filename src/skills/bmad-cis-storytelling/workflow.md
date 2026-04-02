@@ -25,7 +25,6 @@ Load config from `{main_config}` and resolve:
 
 ### Paths
 
-- `skill_path` = `{project-root}/_bmad/cis/workflows/bmad-cis-storytelling`
 - `template_file` = `./template.md`
 - `story_frameworks_file` = `./story-types.csv`
 - `default_output_file` = `{output_folder}/story-{date}.md`

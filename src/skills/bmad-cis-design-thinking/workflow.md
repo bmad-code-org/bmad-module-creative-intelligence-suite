@@ -25,7 +25,6 @@ Load config from `{main_config}` and resolve:
 
 ### Paths
 
-- `skill_path` = `{project-root}/_bmad/cis/workflows/bmad-cis-design-thinking`
 - `template_file` = `./template.md`
 - `design_methods_file` = `./design-methods.csv`
 - `default_output_file` = `{output_folder}/design-thinking-{date}.md`

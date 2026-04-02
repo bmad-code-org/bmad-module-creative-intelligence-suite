@@ -25,7 +25,6 @@ Load config from `{main_config}` and resolve:
 
 ### Paths
 
-- `skill_path` = `{project-root}/_bmad/cis/workflows/bmad-cis-innovation-strategy`
 - `template_file` = `./template.md`
 - `innovation_frameworks_file` = `./innovation-frameworks.csv`
 - `default_output_file` = `{output_folder}/innovation-strategy-{date}.md`

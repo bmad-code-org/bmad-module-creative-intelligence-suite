@@ -25,7 +25,6 @@ Load config from `{main_config}` and resolve:
 
 ### Paths
 
-- `skill_path` = `{project-root}/_bmad/cis/workflows/bmad-cis-problem-solving`
 - `template_file` = `./template.md`
 - `solving_methods_file` = `./solving-methods.csv`
 - `default_output_file` = `{output_folder}/problem-solution-{date}.md`
