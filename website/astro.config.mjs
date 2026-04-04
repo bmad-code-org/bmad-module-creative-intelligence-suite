@@ -41,10 +41,6 @@ export default defineConfig({
       title: 'Creative Intelligence Suite',
       tagline: 'Innovation, brainstorming, and problem-solving agents for the BMad Method.',
 
-      banner: {
-        content: 'Build your own BMad modules and share them with the community! <a href="https://bmad-builder-docs.bmad-method.org/tutorials/build-your-first-module/">Get started</a> or <a href="https://bmad-builder-docs.bmad-method.org/how-to/distribute-your-module/">submit to the marketplace</a>.',
-      },
-
       favicon: '/favicon.ico',
 
       // Social links
