@@ -90,7 +90,14 @@ CIS includes team configurations for collaborative creativity:
 ## Community
 
 - [Discord](https://discord.gg/gk8jAdXWmj) — Share your creative breakthroughs
+- [YouTube](https://youtube.com/@BMadCode) — Tutorials, master class, and more
+- [X / Twitter](https://x.com/BMadCode)
+- [Website](https://bmadcode.com)
 - [GitHub Issues](https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite/issues) — Report issues
+
+## Support BMad
+
+BMad is free for everyone and always will be. Star this repo, [buy me a coffee](https://buymeacoffee.com/bmad), or email contact@bmadcode.com for corporate sponsorship.
 
 ## License
 
