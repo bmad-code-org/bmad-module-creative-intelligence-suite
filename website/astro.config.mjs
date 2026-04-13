@@ -119,13 +119,30 @@ export default defineConfig({
         },
         {
           label: 'BMad Ecosystem',
+          translations: { 'zh-CN': 'BMad 生态系统' },
           collapsed: false,
           items: [
-            { label: 'BMad Method', link: 'https://docs.bmad-method.org/', attrs: { target: '_blank' } },
-            { label: 'BMad Builder', link: 'https://bmad-builder-docs.bmad-method.org/', attrs: { target: '_blank' } },
-            { label: 'Game Dev Studio', link: 'https://game-dev-studio-docs.bmad-method.org/', attrs: { target: '_blank' } },
+            {
+              label: 'BMad Method',
+              translations: { 'zh-CN': 'BMad 方法论' },
+              link: 'https://docs.bmad-method.org/',
+              attrs: { target: '_blank' },
+            },
+            {
+              label: 'BMad Builder',
+              translations: { 'zh-CN': 'BMad 构建器' },
+              link: 'https://bmad-builder-docs.bmad-method.org/',
+              attrs: { target: '_blank' },
+            },
+            {
+              label: 'Game Dev Studio',
+              translations: { 'zh-CN': '游戏开发工作室' },
+              link: 'https://game-dev-studio-docs.bmad-method.org/',
+              attrs: { target: '_blank' },
+            },
             {
               label: 'Test Architect (TEA)',
+              translations: { 'zh-CN': '测试架构师 (TEA)' },
               link: 'https://bmad-code-org.github.io/bmad-method-test-architecture-enterprise/',
               attrs: { target: '_blank' },
             },
