@@ -99,7 +99,7 @@ CIS includes team configurations for collaborative creativity:
 
 ## Support BMad
 
-BMad is free for everyone and always will be. Star this repo, [buy me a coffee](https://buymeacoffee.com/bmad), or email contact@bmadcode.com for corporate sponsorship.
+BMad is free for everyone and always will be. Star this repo, [buy me a coffee](https://buymeacoffee.com/bmad), or email <contact@bmadcode.com> for corporate sponsorship.
 
 ## License
 
