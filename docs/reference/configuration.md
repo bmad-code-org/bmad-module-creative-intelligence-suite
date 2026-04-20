@@ -127,10 +127,17 @@ _bmad/_memory/storyteller-sidecar/
 └── stories-told.md          # History of stories created
 ```
 
-**Critical actions** (automatically called):
+Sophia's agent definition at `src/skills/bmad-cis-agent-storyteller/customize.toml` references these files via `persistent_facts`:
 
-1. Load preferences before storytelling
-2. Update history after story creation
+```toml
+persistent_facts = [
+  "file:{project-root}/**/project-context.md",
+  "file:{project-root}/_bmad/_memory/storyteller-sidecar/story-preferences.md",
+  "file:{project-root}/_bmad/_memory/storyteller-sidecar/stories-told.md",
+]
+```
+
+On activation, Sophia loads any of these files that exist (missing files are skipped silently). To change what Sophia carries as foundational context, override `persistent_facts` in a team customization file at `_bmad/custom/bmad-cis-agent-storyteller.toml` or a personal one at `_bmad/custom/bmad-cis-agent-storyteller.user.toml`.
 
 This enables Sophia to learn your style and build consistent narratives over time.
 
