@@ -133,10 +133,6 @@ Sophia: [Selects Hero's Journey framework]
        [Adapts story for pitch deck format—slide by slide]
 ```
 
-:::note[Sophia's Memory]
-Sophia remembers your story preferences and past narratives in her sidecar. She learns your voice and builds on previous stories over time.
-:::
-
 ## Tips
 
 :::tip[Best Practices]

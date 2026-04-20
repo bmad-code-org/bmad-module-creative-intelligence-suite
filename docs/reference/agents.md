@@ -105,7 +105,6 @@ Catalog of all CIS agents with their commands, purposes, and key capabilities.
 | **Workflow** | `storytelling` |
 | **Command** | `/cis-storytelling` |
 | **Specialty** | 25 story frameworks, emotional psychology, narrative arcs |
-| **Sidecar** | Yes — remembers story preferences and history |
 
 **Menu Triggers:**
 - `ST` or fuzzy match on `story`
@@ -114,11 +113,6 @@ Catalog of all CIS agents with their commands, purposes, and key capabilities.
 - 25 story frameworks (Hero's Journey, Story Brand, Three-Act, etc.)
 - Emotional beat crafting
 - Platform-specific adaptation
-- Sidecar memory for personalization
-
-**Critical Actions:**
-- Loads user preferences from sidecar
-- Reviews story history for consistency
 
 ---
 

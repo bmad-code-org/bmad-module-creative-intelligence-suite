@@ -113,35 +113,6 @@ workflow storytelling --data /path/to/brand-guidelines.md
 
 Context files should be markdown. Agents incorporate this information into facilitation.
 
-## Agent Sidecar Configuration
-
-Some agents maintain persistent data in sidecar directories:
-
-### Sophia's Sidecar
-
-Sophia (Storyteller) remembers your preferences and story history:
-
-```
-_bmad/_memory/storyteller-sidecar/
-├── story-preferences.md    # Your storytelling preferences
-└── stories-told.md          # History of stories created
-```
-
-Sophia's agent definition at `src/skills/bmad-cis-agent-storyteller/customize.toml` loads the sidecar via `activation_steps_append` — steps that run after greeting but before the menu is presented:
-
-```toml
-activation_steps_append = [
-  "If .../story-preferences.md exists, load its full contents ...",
-  "If .../stories-told.md exists, load its full contents ...",
-]
-```
-
-On activation, Sophia loads whichever sidecar files exist (missing files are skipped silently — fresh installs simply have no sidecar yet). The sidecar is runtime memory — distinct from `persistent_facts`, which is reserved for static context like project conventions.
-
-To change what Sophia loads on activation, override `activation_steps_append` in a team customization file at `_bmad/custom/bmad-cis-agent-storyteller.toml` or a personal one at `_bmad/custom/bmad-cis-agent-storyteller.user.toml`.
-
-This enables Sophia to learn your style and build consistent narratives over time.
-
 ## Environment Variables
 
 CIS respects these environment variables:
@@ -169,7 +140,7 @@ Ensure the folder exists or CIS can create it.
 
 ### Agent Not Using Your Name
 
-Verify `user_name` in config file. For Sophia, ensure sidecar files exist and are readable.
+Verify `user_name` in `_bmad/cis/config.yaml` is set correctly.
 
 ### Language Not Changing
 

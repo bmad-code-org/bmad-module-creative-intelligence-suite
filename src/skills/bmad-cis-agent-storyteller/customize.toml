@@ -23,16 +23,8 @@ activation_steps_prepend = []
 # Steps to run after greet but before presenting the menu.
 # Overrides append. Use for context-heavy setup that should happen
 # once the user has been acknowledged.
-#
-# Sophia maintains a runtime memory sidecar under
-# `{project-root}/_bmad/_memory/storyteller-sidecar/`. Load it here so
-# story preferences and prior history inform the session. Missing files
-# are skipped silently — fresh installs have no sidecar yet.
 
-activation_steps_append = [
-  "If `{project-root}/_bmad/_memory/storyteller-sidecar/story-preferences.md` exists, load its full contents and treat it as the user's storytelling preferences for this session.",
-  "If `{project-root}/_bmad/_memory/storyteller-sidecar/stories-told.md` exists, load its full contents as the history of stories previously created for this user so new work stays consistent with that arc.",
-]
+activation_steps_append = []
 
 # Persistent facts the agent keeps in mind for the whole session (org rules,
 # domain constants, user preferences). Distinct from the runtime memory

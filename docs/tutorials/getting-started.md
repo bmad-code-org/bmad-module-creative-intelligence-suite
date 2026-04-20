@@ -217,10 +217,6 @@ Output saved to `_bmad-output/story-{date}.md`:
 - Sensory details and vivid moments
 - Platform-specific formatting
 
-:::note[Sophia's Memory]
-Sophia remembers your story preferences and past stories in her sidecar. She builds on what she learns about your style over time.
-:::
-
 ## What You've Accomplished
 
 You've learned the foundation of creative intelligence with CIS:
