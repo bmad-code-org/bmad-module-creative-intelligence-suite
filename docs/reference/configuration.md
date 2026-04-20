@@ -127,17 +127,18 @@ _bmad/_memory/storyteller-sidecar/
 └── stories-told.md          # History of stories created
 ```
 
-Sophia's agent definition at `src/skills/bmad-cis-agent-storyteller/customize.toml` references these files via `persistent_facts`:
+Sophia's agent definition at `src/skills/bmad-cis-agent-storyteller/customize.toml` loads the sidecar via `activation_steps_append` — steps that run after greeting but before the menu is presented:
 
 ```toml
-persistent_facts = [
-  "file:{project-root}/**/project-context.md",
-  "file:{project-root}/_bmad/_memory/storyteller-sidecar/story-preferences.md",
-  "file:{project-root}/_bmad/_memory/storyteller-sidecar/stories-told.md",
+activation_steps_append = [
+  "If .../story-preferences.md exists, load its full contents ...",
+  "If .../stories-told.md exists, load its full contents ...",
 ]
 ```
 
-On activation, Sophia loads any of these files that exist (missing files are skipped silently). To change what Sophia carries as foundational context, override `persistent_facts` in a team customization file at `_bmad/custom/bmad-cis-agent-storyteller.toml` or a personal one at `_bmad/custom/bmad-cis-agent-storyteller.user.toml`.
+On activation, Sophia loads whichever sidecar files exist (missing files are skipped silently — fresh installs simply have no sidecar yet). The sidecar is runtime memory — distinct from `persistent_facts`, which is reserved for static context like project conventions.
+
+To change what Sophia loads on activation, override `activation_steps_append` in a team customization file at `_bmad/custom/bmad-cis-agent-storyteller.toml` or a personal one at `_bmad/custom/bmad-cis-agent-storyteller.user.toml`.
 
 This enables Sophia to learn your style and build consistent narratives over time.
 
