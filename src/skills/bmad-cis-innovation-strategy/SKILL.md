@@ -36,7 +36,7 @@ Execute each entry in `{workflow.activation_steps_prepend}` in order before proc
 
 ### Step 3: Load Persistent Facts
 
-Treat every entry in `{workflow.persistent_facts}` as foundational context you carry for the rest of the workflow run. Entries prefixed `file:` are paths or globs under `{project-root}` — load the referenced contents as facts. All other entries are facts verbatim.
+Treat every entry in `{workflow.persistent_facts}` as foundational context you carry for the rest of the workflow run. Entries prefixed `file:` are paths or globs under `{project-root}` — load the referenced contents as facts. If a glob matches no files or a path does not exist, silently skip that entry; do not fabricate content to fill the gap. All other entries are facts verbatim.
 
 ### Step 4: Load Config
 
@@ -65,8 +65,8 @@ Activation is complete. Begin the workflow below.
 
 ## Inputs
 
-- If the caller provides context via the data attribute, load it before Step 1 and use it to ground the session.
-- Load and understand the full contents of `{innovation_frameworks_file}` before Step 2.
+- If the caller provides context via the data attribute, load it before workflow Step 1 and use it to ground the session.
+- Load and understand the full contents of `{innovation_frameworks_file}` before workflow Step 2.
 - Use `{template_file}` as the structure when writing `{default_output_file}`.
 
 ## Behavioral Constraints

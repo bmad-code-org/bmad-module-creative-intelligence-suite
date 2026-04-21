@@ -36,7 +36,7 @@ Execute each entry in `{workflow.activation_steps_prepend}` in order before proc
 
 ### Step 3: Load Persistent Facts
 
-Treat every entry in `{workflow.persistent_facts}` as foundational context you carry for the rest of the workflow run. Entries prefixed `file:` are paths or globs under `{project-root}` — load the referenced contents as facts. All other entries are facts verbatim.
+Treat every entry in `{workflow.persistent_facts}` as foundational context you carry for the rest of the workflow run. Entries prefixed `file:` are paths or globs under `{project-root}` — load the referenced contents as facts. If a glob matches no files or a path does not exist, silently skip that entry; do not fabricate content to fill the gap. All other entries are facts verbatim.
 
 ### Step 4: Load Config
 
@@ -65,14 +65,14 @@ Activation is complete. Begin the workflow below.
 
 ## Inputs
 
-- If the caller provides context via the data attribute, load it before Step 1 and use it to ground the storytelling session.
+- If the caller provides context via the data attribute, load it before workflow Step 1 and use it to ground the storytelling session.
 - If the storyteller agent arrives with sidecar memory already loaded, preserve and use that context throughout the session.
-- Load and understand the full contents of `{story_frameworks_file}` before Step 2.
+- Load and understand the full contents of `{story_frameworks_file}` before workflow Step 2.
 - Use `{template_file}` as the structure when writing `{default_output_file}`.
 
 ## Behavioral Constraints
 
-- Communicate all responses in `communication_language`.
+- Communicate all responses in `{communication_language}`.
 - Do not give time estimates.
 - After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
 
