@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.2.1 - 2026-05-17 — module-help.csv column alignment
+
+* Renamed `after`/`before` columns in `src/module-help.csv` to `preceded-by`/`followed-by` to match the canonical 13-column schema introduced in BMAD-METHOD v6.6.0. Warning-only fix; data was already loaded positionally (#35).
+
 ## v0.2.0 - Apr 21, 2026 — customize.toml pattern across agents and workflows
 
 ### Agent customization surface
