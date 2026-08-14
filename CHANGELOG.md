@@ -11,6 +11,11 @@
 
 - **`uv` is what you need; a system Python is not.** CIS skills no longer invoke a bare interpreter anywhere. Install [`uv`](https://docs.astral.sh/uv/) and it provisions the right Python per script.
 
+## v0.2.1 - May 17, 2026 — module-help.csv column alignment
+
+- Normalized `src/module-help.csv` to the documented 13-column schema (#32).
+- Renamed `after`/`before` columns in `src/module-help.csv` to `preceded-by`/`followed-by` to match the canonical 13-column schema introduced in BMAD-METHOD v6.6.0. Warning-only fix; data was already loaded positionally (#35).
+
 ## v0.2.0 - Apr 21, 2026 — customize.toml pattern across agents and workflows
 
 ### Agent customization surface
