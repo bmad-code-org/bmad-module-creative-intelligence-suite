@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.3.1 - Aug 16, 2026 — `persistent_facts` ships empty
+
+### Fixes
+
+- **Skills no longer load `project-context.md` by default** (#40). All ten `customize.toml` files shipped with `persistent_facts = ["file:{project-root}/**/project-context.md"]` pre-seeded, which made loading that file an opt-out default baked into every skill rather than a customization you choose. `persistent_facts` is a user-customization surface, so it now ships as an empty array in all ten.
+
+  This also corrects an assumption that no longer held: `bmad-project-context` does not produce a `project-context.md` at all. It writes a verified block into the repository's `AGENTS.md` and treats a `project-context.md` as a legacy artifact from the retired skills. The seeded default named a file that the current tooling never creates.
+
+  Repository-wide context belongs in `AGENTS.md`, which every skill already sees. `persistent_facts` is for context that only one skill needs, loaded when that skill runs instead of carried as constant memory. If you keep a `project-context.md` and want a skill to read it, add the entry to your team or user override TOML:
+
+  ```toml
+  persistent_facts = ["file:{project-root}/**/project-context.md"]
+  ```
+
 ## v0.3.0 - Aug 9, 2026 — skills run their Python through `uv run`
 
 ### Fixes
