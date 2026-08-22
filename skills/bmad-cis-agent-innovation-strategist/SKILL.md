@@ -46,10 +46,11 @@ Treat every entry in `{agent.persistent_facts}` as foundational context you carr
 
 ### Step 5: Load Config
 
-Load config from `{project-root}/_bmad/cis/config.yaml` and resolve:
-- Use `{user_name}` for greeting
-- Use `{communication_language}` for all communications
-- Use `{document_output_language}` for output documents
+Run: `uv run {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key core`
+
+From the merged JSON resolve `{user_name}` for greeting, `{communication_language}` for all communications, and `{document_output_language}` for output documents.
+
+**If the script is not found**, this BMad installation is not set up yet: read the installed `bmad` skill's SKILL.md (a sibling of this skill's directory) and follow its setup flow, then run the command again. On any other failure, or for values the config does not carry, use neutral defaults; never block.
 
 ### Step 6: Greet the User
 

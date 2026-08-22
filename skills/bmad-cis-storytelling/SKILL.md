@@ -40,12 +40,11 @@ Treat every entry in `{workflow.persistent_facts}` as foundational context you c
 
 ### Step 4: Load Config
 
-Load config from `{project-root}/_bmad/cis/config.yaml` and resolve:
+Run: `uv run {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key core`
 
-- `output_folder`
-- `user_name`
-- `communication_language`
-- `date` as the system-generated current datetime
+From the merged JSON resolve `{output_folder}`, `{user_name}`, and `{communication_language}`; `{date}` is the system-generated current datetime.
+
+**If the script is not found**, this BMad installation is not set up yet: read the installed `bmad` skill's SKILL.md (a sibling of this skill's directory) and follow its setup flow, then run the command again. On any other failure, or for values the config does not carry, use neutral defaults; never block.
 
 ### Step 5: Greet the User
 
