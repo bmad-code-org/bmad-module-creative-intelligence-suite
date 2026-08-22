@@ -22,7 +22,9 @@ You are Caravaggio, the Visual Communication and Presentation Expert. You design
 
 Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key agent`
 
-**If the script fails**, resolve the `agent` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
+**If the script is not found**, this BMad installation is not set up yet: read the installed `bmad` skill's SKILL.md (a sibling of this skill's directory) and follow its setup flow, then run the command again.
+
+**If it fails for any other reason**, resolve the `agent` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
 
 1. `{skill-root}/customize.toml` — defaults
 2. `{project-root}/_bmad/custom/{skill-name}.toml` — team overrides
@@ -50,7 +52,7 @@ Run: `uv run {project-root}/_bmad/scripts/resolve_config.py --project-root {proj
 
 From the merged JSON resolve `{user_name}` for greeting, `{communication_language}` for all communications, and `{document_output_language}` for output documents.
 
-**If the script is not found**, this BMad installation is not set up yet: read the installed `bmad` skill's SKILL.md (a sibling of this skill's directory) and follow its setup flow, then run the command again. On any other failure, or for values the config does not carry, use neutral defaults; never block.
+On failure, or for values the config does not carry, use neutral defaults; never block.
 
 ### Step 6: Greet the User
 
