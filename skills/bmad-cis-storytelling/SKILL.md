@@ -22,7 +22,9 @@ description: 'Craft compelling narratives using story frameworks. Use when the u
 
 Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
 
-**If the script fails**, resolve the `workflow` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
+**If the script is not found**, this BMad installation is not set up yet: read the installed `bmad` skill's SKILL.md (a sibling of this skill's directory) and follow its setup flow, then run the command again.
+
+**If it fails for any other reason**, resolve the `workflow` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
 
 1. `{skill-root}/customize.toml` — defaults
 2. `{project-root}/_bmad/custom/{skill-name}.toml` — team overrides
@@ -40,16 +42,15 @@ Treat every entry in `{workflow.persistent_facts}` as foundational context you c
 
 ### Step 4: Load Config
 
-Load config from `{project-root}/_bmad/cis/config.yaml` and resolve:
+Run: `uv run {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key core`
 
-- `output_folder`
-- `user_name`
-- `communication_language`
-- `date` as the system-generated current datetime
+From the merged JSON resolve `{output_folder}`; `{date}` is the system-generated current datetime.
+
+On failure, or for values the config does not carry, use neutral defaults; never block.
 
 ### Step 5: Greet the User
 
-Greet `{user_name}`, speaking in `{communication_language}`.
+Greet the user.
 
 ### Step 6: Execute Append Steps
 
@@ -72,7 +73,6 @@ Activation is complete. Begin the workflow below.
 
 ## Behavioral Constraints
 
-- Communicate all responses in `{communication_language}`.
 - Do not give time estimates.
 - After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
 
@@ -343,7 +343,7 @@ Before finishing:
 
 Write the final story document to `{default_output_file}`.
 
-Confirm completion with: "Story complete, {user_name}! Your narrative has been saved to {default_output_file}".
+Confirm completion with: "Story complete! Your narrative has been saved to {default_output_file}".
 
 <template-output>agent_role, agent_name, user_name, date</template-output>
 

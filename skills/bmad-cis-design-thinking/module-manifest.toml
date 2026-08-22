@@ -1,0 +1,4 @@
+module = "cis"
+version = "0.3.1-next"
+update_source = "github:bmad-code-org/cis-skills/skills"
+knowledge = "https://cis-docs.bmad-method.org/llms.txt"
