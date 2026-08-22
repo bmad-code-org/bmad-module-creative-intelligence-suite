@@ -44,13 +44,13 @@ Treat every entry in `{workflow.persistent_facts}` as foundational context you c
 
 Run: `uv run {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key core`
 
-From the merged JSON resolve `{output_folder}`, `{user_name}`, and `{communication_language}`; `{date}` is the system-generated current datetime.
+From the merged JSON resolve `{output_folder}`; `{date}` is the system-generated current datetime.
 
 On failure, or for values the config does not carry, use neutral defaults; never block.
 
 ### Step 5: Greet the User
 
-Greet `{user_name}`, speaking in `{communication_language}`.
+Greet the user.
 
 ### Step 6: Execute Append Steps
 
