@@ -20,7 +20,7 @@ description: 'Apply systematic problem-solving methodologies to complex challeng
 
 ### Step 1: Resolve the Workflow Block
 
-Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
+Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --project-root {project-root} --key workflow`
 
 **If the script fails**, resolve the `workflow` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
 
@@ -301,7 +301,7 @@ Identify risks and mitigation:
 <template-output>risk_mitigation</template-output>
 <template-output>adjustment_triggers</template-output>
 
-<action>If the user will NOT run the optional Step 9 reflection, run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
+<action>If the user will NOT run the optional Step 9 reflection, run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --project-root {project-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
 </step>
 
 <step n="9" goal="Capture lessons learned" optional="true">
@@ -319,7 +319,7 @@ Facilitate reflection:
 <template-output>what_worked</template-output>
 <template-output>what_to_avoid</template-output>
 
-<action>Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
+<action>Run: `uv run {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --project-root {project-root} --key workflow.on_complete` — if the resolved value is non-empty, follow it as the final terminal instruction before exiting.</action>
 </step>
 
 </workflow>
