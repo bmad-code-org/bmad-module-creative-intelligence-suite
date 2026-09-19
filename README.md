@@ -26,40 +26,43 @@ The Creative Intelligence Suite (CIS) extends BMad Method with tools for the fuz
 
 ## Installation
 
-CIS is installed as a module during BMad Method setup:
+CIS installs as plain skills. Install the `bmad` hub skill first, then CIS:
 
 ```bash
-npx bmad-method@alpha install
+npx skills add bmad-code-org/BMAD-METHOD --skill bmad
+npx skills add bmad-code-org/bmad-module-creative-intelligence-suite
 ```
 
-Select **Creative Intelligence Suite** from the modules list.
+Then ask your agent to run `bmad setup` in the project. `bmad doctor` reports anything a skill still needs. To install one skill, add `--skill <name>`.
 
 ## Quick Start
 
-After installing BMad Method with CIS, try these workflows:
+Ask for a skill by name, or describe what you want and let the agent pick:
 
 ```
-/cis-brainstorm      # Generate ideas with structured techniques
-/cis-design-thinking # Human-centered design process
-/cis-problem-solve   # Systematic problem analysis
-/cis-innovation      # Business model and disruption analysis
+bmad-cis-design-thinking      # Human-centered design process
+bmad-cis-problem-solving      # Systematic problem analysis
+bmad-cis-innovation-strategy  # Business model and disruption analysis
+bmad-cis-storytelling         # Narrative built on a story framework
 ```
+
+Each skill also has an agent persona, such as `bmad-cis-agent-storyteller`, for a conversation with that one perspective.
 
 ## When to Use CIS
 
 | Situation | Use This |
 |-----------|----------|
-| Stuck on a problem | `/cis-problem-solve` |
-| Need fresh ideas | `/cis-brainstorm` |
-| Designing for users | `/cis-design-thinking` |
-| Finding market gaps | `/cis-innovation` |
-| Telling your product story | `/cis-storytelling` |
-| Preparing a pitch | `/cis-presentation` |
+| Stuck on a problem | `bmad-cis-problem-solving` |
+| Need fresh ideas | `bmad-brainstorming` (from BMad core tools) |
+| Designing for users | `bmad-cis-design-thinking` |
+| Finding market gaps | `bmad-cis-innovation-strategy` |
+| Telling your product story | `bmad-cis-storytelling` |
+| Preparing a pitch | `bmad-cis-agent-presentation-master` |
 
 ## Example: Brainstorming Session
 
 ```
-You: /cis-brainstorm
+You: Run bmad-brainstorming
 CIS: What would you like to brainstorm about?
 You: Ways to improve user onboarding
 CIS: Let's use the SCAMPER technique...
