@@ -1,5 +1,5 @@
 module = "cis"
-version = "0.3.1-next"
+version = "0.4.0-next"
 update_source = "github:bmad-code-org/bmad-module-creative-intelligence-suite/skills"
 knowledge = ["bmad-meta/cis-help.md", "bmad-meta/agents-help.md"]
 roster = ["bmad-meta/cis-roster.toml"]
@@ -8,7 +8,7 @@ roster = ["bmad-meta/cis-roster.toml"]
 bmad = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
 
 [recommends]
-bmad-cis-design-thinking = { version = "0.3.1" }
+bmad-cis-design-thinking = { version = "0.4.0" }
 bmad-advanced-elicitation = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
 bmad-customize = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
 bmad-forge-idea = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }

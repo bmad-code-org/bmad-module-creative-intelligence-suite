@@ -4,6 +4,7 @@ name: Quality & Validation
 # - Prettier (formatting)
 # - ESLint (linting)
 # - markdownlint (markdown quality)
+# - bmad-meta sync (shared help and roster copies match bmad-meta/)
 
 "on":
   pull_request:
@@ -64,3 +65,15 @@ jobs:
 
       - name: markdownlint
         run: npm run lint:md
+
+  bmad-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Shared bmad-meta copies match
+        run: uv run tools/sync_knowledge.py

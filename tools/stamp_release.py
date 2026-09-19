@@ -24,7 +24,7 @@ the script re-reads every file and fails naming the offending path if
 anything is off.
 
 Usage:
-  uv run --python 3.11 tools/stamp_release.py 0.3.1
+  uv run --python 3.11 tools/stamp_release.py 0.4.0
 """
 
 from __future__ import annotations
@@ -74,7 +74,7 @@ def validate_version(version: str) -> None:
     if match is None:
         raise StampError(
             f"invalid version {version!r}: must be SemVer "
-            "(MAJOR.MINOR.PATCH, optional prerelease), e.g. 0.3.1"
+            "(MAJOR.MINOR.PATCH, optional prerelease), e.g. 0.4.0"
         )
     if "-dev" in version.casefold():
         raise StampError(
@@ -264,7 +264,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Stamp a release version into every skill manifest."
     )
-    parser.add_argument("version", help='SemVer release version, e.g. "0.3.1"')
+    parser.add_argument("version", help='SemVer release version, e.g. "0.4.0"')
     args = parser.parse_args(argv)
     return run(PROJECT_ROOT, args.version)
 
