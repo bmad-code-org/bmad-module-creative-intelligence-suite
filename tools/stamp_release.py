@@ -2,12 +2,12 @@
 # /// script
 # requires-python = ">=3.11"
 # ///
-"""Release version stamper for the cis-skills mirror.
+"""Release version stamper for the Creative Intelligence Suite.
 
 Writes a human-supplied SemVer version into every skills/*/module-manifest.toml,
-then verifies the result. Used by tools/release.md to cut a stamped release
-commit; never run on the unstamped `dev` branch itself. The manifests are the
-only version source the distributed tree carries.
+then verifies the result. Used by tools/release.md to stamp releases and the
+next placeholder on `dev`. The manifests are the only version source the
+distributed tree carries.
 
 Before writing anything it validates every manifest: the keys module, version,
 update_source and knowledge are present, module is a known module,
@@ -42,7 +42,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_NAME = "module-manifest.toml"
 
 MODULES = frozenset({"cis"})
-UPDATE_SOURCE = "github:bmad-code-org/cis-skills/skills"
+UPDATE_SOURCE = "github:bmad-code-org/bmad-module-creative-intelligence-suite/skills"
 MANIFEST_KEYS = frozenset({"module", "version", "update_source", "knowledge"})
 DEPENDENCY_TABLES = ("recommends", "requires")
 
@@ -170,7 +170,7 @@ def collect_skills(project_root: Path) -> tuple[list[Path], dict[str, str]]:
     if not skill_dirs:
         raise StampError(
             f"no skills/*/{MANIFEST_NAME} found under {project_root} — "
-            "run from a cis-skills checkout"
+            "run from a checkout of this repository"
         )
     manifests: list[Path] = []
     modules: dict[str, str] = {}

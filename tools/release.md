@@ -1,138 +1,106 @@
-# Release Runbook — cis-skills Mirror
+# Release Runbook — Creative Intelligence Suite
 
-How to cut a versioned release of `bmad-code-org/cis-skills`, the distribution
-mirror for the CIS module. Follow it top to bottom on a local clone of that
-repository; it needs no other document.
+`dev` receives development PRs; `main` is the default, release-only branch.
+`npx skills` installs from `main`, and installed copies check `main` for
+updates, so what `main` serves is the released version. Release by
+fast-forwarding `main` to a stamped commit on `dev`, then tag it. No release
+branches, release PRs, merge commits, or back-merges are needed. `main` stays
+an ancestor of `dev`.
 
-## Prerequisites
+This is a hand-run process. Use Git, `uv`, and Node. Pause other pushes and
+merges into `dev` until the next placeholder is pushed. Do the release in one
+sitting. Stop on any failed command or unexpected diff.
 
-- Push access to `git@github.com:bmad-code-org/cis-skills.git` over SSH.
-- `uv`, or plain Python >= 3.11 — the stamper uses only the standard library,
-  so `python3 tools/stamp_release.py <version>` works wherever the `uv run`
-  command below appears.
+## 1. Prepare
 
-## Branch model
-
-- `dev` is the development branch. It is force-pushed from the source repo
-  (`bmad-module-creative-intelligence-suite`) and always carries the
-  placeholder version (for example `0.3.1-next`). It is never stamped.
-- `main` is the default branch and is release-only. Installed copies check for
-  updates against `main`, so what `main` serves defines the released version.
-- Every release rewrites `main`: `main` is always the current `dev` plus
-  exactly one stamp commit. It is never a fast-forward of the previous
-  release, which is why the push below force-pushes.
-
-Refresh `dev` from the source repo with:
+Start in a clean checkout with no unpublished commits:
 
 ```bash
-git push --force git@github.com:bmad-code-org/cis-skills.git <source-branch>:dev
-```
-
-## 1. Prepare a clean checkout of dev
-
-```bash
-git clone git@github.com:bmad-code-org/cis-skills.git   # or reuse an existing clone
-cd cis-skills
-git status --porcelain        # must print nothing; stop and clean up if it does
+git status --porcelain
 git fetch origin
-git checkout --detach origin/dev
+git switch dev
+git pull --ff-only origin dev
+test "$(git rev-parse HEAD)" = "$(git rev-parse origin/dev)"
+git merge-base --is-ancestor origin/main dev
+
+cis_release_version=0.4.0
+cis_next_version=0.4.1-next
+git show origin/main:skills/bmad-cis-storytelling/module-manifest.toml
+git tag --list "v$cis_release_version"
 ```
 
-Working detached keeps the stamp commit off the local `dev` branch — `dev`
-stays unstamped everywhere.
+Choose the versions explicitly. The release must differ from what `main`
+serves and must not reuse a tag. Use SemVer, optionally with a prerelease; no
+`-dev` or build metadata (`+...`). The next placeholder is the next patch with
+`-next`. The stamper enforces the version syntax, not release history.
 
-## 2. Choose the version
-
-You supply the version; the tooling never derives or increments it. It must:
-
-- be SemVer (`MAJOR.MINOR.PATCH`, optional prerelease such as `-rc.1`),
-- not contain `-dev` (the update check cannot order `-dev` versions, so
-  installed copies would never learn they are current or outdated),
-- carry no build metadata (`+...`) — the update check drops it, so
-  `0.3.1+hotfix` compares equal to `0.3.1` and installed copies would never
-  see such a release,
-- differ from the version `main` currently serves — stamping the same version
-  again is a no-op for installed copies, so a release must change it. Change
-  the major, minor, patch, or prerelease part.
-
-The stamper enforces the first three and refuses to write anything if one
-fails. The last is yours to check — it cannot know what `main` serves.
-
-CIS versions independently of BMad Method — `update_source` is per-manifest,
-so the two modules never share a release cadence. Pick from CIS's own version
-line, not BMM's. While the mirror is a testing mirror, rehearse with
-`0.0.0-next.N` and never reuse an N.
-
-Check what `main` serves now:
+## 2. Stamp and push dev
 
 ```bash
-git show origin/main:skills/bmad-cis-design-thinking/module-manifest.toml
-```
-
-## 3. Stamp
-
-```bash
-uv run --python 3.11 tools/stamp_release.py <version>
-```
-
-Expected: exit 0 and a summary listing every `skills/*/module-manifest.toml`.
-The stamper also validates every manifest before writing: exact manifest
-keys, a known module, the one known update source, knowledge documents the
-skill actually ships, and well-formed `requires` and `recommends` tables.
-If it exits nonzero, the tree may be left half-stamped (the script writes the
-files before its final verification), so restore it with `git checkout -- .`
-first, then fix the reported problem and rerun.
-
-## 4. Review the diff
-
-```bash
-git diff --stat
+uv run --python 3.11 tools/stamp_release.py "$cis_release_version"
 git diff
+git add skills/*/module-manifest.toml
+git commit -m "chore(release): v$cis_release_version"
+cis_release_commit=$(git rev-parse HEAD)
+npm ci && npm test
+git push origin dev
 ```
 
-Expected: only the files from the stamp summary, and within each file only the
-version value changed.
+Review before committing: only the version in the ten manifests should change.
+The stamper validates every manifest before writing: the required keys, a known
+module, the one known update source, knowledge and roster files the skill
+actually ships, and well-formed `requires` and `recommends` tables. If it exits
+nonzero after writing, restore the manifests with
+`git restore skills/*/module-manifest.toml`, fix the reported problem, and rerun.
 
-## 5. Commit, tag, and push to main
+Run `npm test` on committed `HEAD` in this checkout before pushing; keep that
+tested commit checked out through promotion and tagging. Wait for its GitHub
+status checks to pass before promoting it.
 
-```bash
-git commit -am "chore(release): v<version>"
-git tag "v<version>"
-git push --atomic --force-with-lease origin HEAD:main "refs/tags/v<version>"
-```
-
-The force push is expected on every release (see the branch model above).
-`--force-with-lease` makes it fail if someone else moved `main` since your
-fetch; if that happens, start over from step 1 (and delete the local tag
-first: `git tag -d "v<version>"`).
-
-The tag is what preserves history: force-pushing `main` orphans the previous
-release commit, and the tag keeps it reachable — every past release stays
-inspectable as `v<version>`. Tag pushes are never forced, so pushing a
-version that was ever released before fails loudly; that is intentional.
-Versions are never reused — pick a new one. `--atomic` makes `main` and the
-tag land together or not at all.
-
-## 6. Verify
+## 3. Fast-forward main and tag
 
 ```bash
 git fetch origin
-git show origin/main:skills/bmad-cis-design-thinking/module-manifest.toml   # version = "<version>"
-git show origin/dev:skills/bmad-cis-design-thinking/module-manifest.toml    # still the placeholder
+test "$(git rev-parse HEAD)" = "$cis_release_commit"
+test "$(git rev-parse origin/dev)" = "$cis_release_commit"
+git merge-base --is-ancestor origin/main dev
+git push origin dev:main
+git fetch origin
+test "$(git rev-parse origin/main)" = "$cis_release_commit"
+git tag -a "v$cis_release_version" "$cis_release_commit" -m "Release v$cis_release_version"
+git push origin "refs/tags/v$cis_release_version"
 ```
 
-Note: installed copies check for updates through `raw.githubusercontent.com`,
-which caches files for around five minutes. Right after the push, update
-checks may still report the previous version; that is the CDN, not a failed
-release. Verify through git (above), or wait a few minutes before trusting
-an update check.
+The tag identifies the same stamped commit on `dev` and `main`. Never force a
+push or move a release tag. If `dev` moved, stop rather than including
+unreviewed changes in the release.
 
-## 7. Confirm the release installs
+## 4. Stamp the next placeholder
 
 ```bash
-npx skills add bmad-code-org/cis-skills --skill '*'
-bmad update
+git fetch origin
+test "$(git rev-parse origin/dev)" = "$cis_release_commit"
+uv run --python 3.11 tools/stamp_release.py "$cis_next_version"
+git diff
+git add skills/*/module-manifest.toml
+git commit -m "chore: bump placeholder version to $cis_next_version"
+npm ci && npm test
+git push origin dev
 ```
 
-Expected: the ten CIS skills install, and `bmad update` reports `cis` at the
-version just released, separately from any other installed module.
+Review the same version-only changes before committing. `main` and the tag
+retain the release version; `dev` carries the next placeholder. Development can
+resume. Nothing needs merging back.
+
+## 5. Verify
+
+```bash
+npx skills add bmad-code-org/bmad-module-creative-intelligence-suite --list
+```
+
+Install one skill into a scratch project and run `bmad doctor` there; it should
+report the `cis` module at the released version.
+
+Installed copies check `main` through `raw.githubusercontent.com`, which caches
+files for around five minutes. Verify the release through Git first, or wait
+before trusting an update check that still reports the previous version.

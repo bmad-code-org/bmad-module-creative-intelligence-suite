@@ -1,6 +1,6 @@
 module = "cis"
 version = "0.3.1-next"
-update_source = "github:bmad-code-org/cis-skills/skills"
+update_source = "github:bmad-code-org/bmad-module-creative-intelligence-suite/skills"
 knowledge = ["bmad-meta/cis-help.md", "bmad-meta/agents-help.md"]
 roster = ["bmad-meta/cis-roster.toml"]
 
