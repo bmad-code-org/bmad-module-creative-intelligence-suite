@@ -1,0 +1,15 @@
+module = "cis"
+version = "0.3.1-next"
+update_source = "github:bmad-code-org/cis-skills/skills"
+knowledge = ["bmad-meta/cis-help.md", "bmad-meta/agents-help.md"]
+roster = ["bmad-meta/cis-roster.toml"]
+
+[requires]
+bmad = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
+
+[recommends]
+bmad-cis-design-thinking = { version = "0.3.1" }
+bmad-advanced-elicitation = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
+bmad-customize = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
+bmad-forge-idea = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }
+bmad-party-mode = { version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }

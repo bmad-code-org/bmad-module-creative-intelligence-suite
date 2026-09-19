@@ -8,34 +8,17 @@ export default [
   // Global ignores for files/folders that should not be linted
   {
     ignores: [
-      'dist/**',
-      'coverage/**',
-      '**/*.min.js',
-      'test/template-test-generator/**',
-      'test/template-test-generator/**/*.js',
-      'test/template-test-generator/**/*.md',
-      'test/fixtures/**',
-      'test/fixtures/**/*.yaml',
+      // Installed BMad artifacts and the harness symlinks
       '_bmad/**',
       '_bmad*/**',
-      // Build output
-      'build/**',
       // Website uses ESM/Astro - separate linting ecosystem
       'website/**',
-      // Gitignored patterns
+      // Gitignored build and scratch output
+      'build/**',
+      'coverage/**',
       'z*/**', // z-samples, z1, z2, etc.
       '.claude/**',
       '.codex/**',
-      '.github/chatmodes/**',
-      '.agent/**',
-      '.agentvibes/**',
-      '.kiro/**',
-      '.roo/**',
-      'test-project-install/**',
-      'sample-project/**',
-      'tools/template-test-generator/test-scenarios/**',
-      'src/modules/*/sub-modules/**',
-      '.bundler-temp/**',
     ],
   },
 
