@@ -1,0 +1,7 @@
+[skill]
+bmod = "bmod-cis"
+source = "github:bmad-code-org/bmad-module-creative-intelligence-suite/skills"
+recommended_skills = [
+  "bmad-cis-design-thinking",
+  { skill = "bmad-brainstorming", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+]

@@ -12,54 +12,56 @@
 
 The Creative Intelligence Suite (CIS) extends BMad Method with tools for the fuzzy front-end of development—where ideas are born, problems are reframed, and solutions emerge through structured creativity.
 
-## Modules Included
+## The Agents
 
-| Agent/Workflow | Purpose |
-|---------------|---------|
-| **Innovation Strategist** | Identify disruption opportunities and business model innovation |
-| **Design Thinking Coach** | Human-centered design through empathy, ideation, and prototyping |
-| **Brainstorming Coach** | Facilitate creative ideation sessions with proven techniques |
-| **Problem Solver** | Systematic problem diagnosis and root cause analysis |
-| **Creative Problem Solver** | Generate creative solutions using lateral thinking |
-| **Storyteller** | Craft compelling narratives for products and features |
-| **Presentation Master** | Structure and deliver persuasive presentations |
+| Agent | Skill | What they bring |
+|-------|-------|-----------------|
+| **Carson**, Brainstorming Coach | `bmad-cis-agent-brainstorming-coach` | Guided ideation that pushes past the obvious ideas |
+| **Maya**, Design Thinking Coach | `bmad-cis-agent-design-thinking-coach` | Human-centered design through empathy, ideation, and prototyping |
+| **Dr. Quinn**, Creative Problem Solver | `bmad-cis-agent-creative-problem-solver` | Root cause diagnosis, then solutions that hold |
+| **Victor**, Innovation Strategist | `bmad-cis-agent-innovation-strategist` | Disruption opportunities and business model innovation |
+| **Sophia**, Storyteller | `bmad-cis-agent-storyteller` | Narratives built on proven story frameworks |
+| **Caravaggio**, Presentation Expert | `bmad-cis-agent-presentation-master` | Plans and critiques decks, pitches, talks, and visuals |
 
 ## Installation
 
-CIS is installed as a module during BMad Method setup:
+CIS installs as plain skills. Install the `bmad` hub skill first, then CIS:
 
 ```bash
-npx bmad-method@alpha install
+npx skills add bmad-code-org/BMAD-METHOD --skill bmad
+npx skills add bmad-code-org/bmad-module-creative-intelligence-suite
 ```
 
-Select **Creative Intelligence Suite** from the modules list.
+Then ask your agent to run `bmad setup` in the project. `bmad status` reports anything a skill still needs. To install one skill, add `--skill <name>` and include `bmod-cis`, the module's record: it carries the help and the party roster for every CIS skill.
 
 ## Quick Start
 
-After installing BMad Method with CIS, try these workflows:
+Ask for a skill by name, or describe what you want and let the agent pick:
 
 ```
-/cis-brainstorm      # Generate ideas with structured techniques
-/cis-design-thinking # Human-centered design process
-/cis-problem-solve   # Systematic problem analysis
-/cis-innovation      # Business model and disruption analysis
+bmad-cis-design-thinking      # Human-centered design process
+bmad-cis-problem-solving      # Systematic problem analysis
+bmad-cis-innovation-strategy  # Business model and disruption analysis
+bmad-cis-storytelling         # Narrative built on a story framework
 ```
+
+Each skill also has an agent persona, such as `bmad-cis-agent-storyteller`, for a conversation with that one perspective.
 
 ## When to Use CIS
 
 | Situation | Use This |
 |-----------|----------|
-| Stuck on a problem | `/cis-problem-solve` |
-| Need fresh ideas | `/cis-brainstorm` |
-| Designing for users | `/cis-design-thinking` |
-| Finding market gaps | `/cis-innovation` |
-| Telling your product story | `/cis-storytelling` |
-| Preparing a pitch | `/cis-presentation` |
+| Stuck on a problem | `bmad-cis-problem-solving` |
+| Need fresh ideas | `bmad-brainstorming` (from BMad core tools) |
+| Designing for users | `bmad-cis-design-thinking` |
+| Finding market gaps | `bmad-cis-innovation-strategy` |
+| Telling your product story | `bmad-cis-storytelling` |
+| Planning or critiquing a pitch deck | `bmad-cis-agent-presentation-master` |
 
 ## Example: Brainstorming Session
 
 ```
-You: /cis-brainstorm
+You: Run bmad-brainstorming
 CIS: What would you like to brainstorm about?
 You: Ways to improve user onboarding
 CIS: Let's use the SCAMPER technique...
