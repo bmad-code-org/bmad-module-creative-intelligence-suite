@@ -122,7 +122,8 @@ def validate_requirements(owner: dict[str, object], where: str, rel: str, shippe
         if not isinstance(entries, list):
             raise StampError(f"{rel}: {where}.{key} must be a list")
         for entry in entries:
-            if isinstance(entry, str):
+            plain = isinstance(entry, str)
+            if plain:
                 entry = {"skill": entry}
             if not isinstance(entry, dict) or not isinstance(entry.get("skill"), str) or not entry["skill"]:
                 raise StampError(f"{rel}: {where}.{key} entry {entry!r} must be a skill name or a table with `skill`")
@@ -136,8 +137,10 @@ def validate_requirements(owner: dict[str, object], where: str, rel: str, shippe
             source = entry.get("source")
             if source is not None and (not isinstance(source, str) or not source):
                 raise StampError(f"{rel}: {where}.{key} {entry['skill']}: source must be a string")
-            if source is None and entry["skill"] not in shipped:
-                raise StampError(f"{rel}: {where}.{key} {entry['skill']} names no skill in this repository and gives no source")
+            if source is None and (not plain or entry["skill"] not in shipped):
+                raise StampError(
+                    f"{rel}: {where}.{key} {entry['skill']} needs a source: only a plain name of a skill in this repository goes without one"
+                )
 
 
 def validate_record_folder(folder: Path, rel: str) -> None:
@@ -269,8 +272,11 @@ def run(project_root: Path, version: str | None) -> int:
         for record in records:
             rel = record.relative_to(project_root).as_posix()
             data = read_toml(record, rel)
-            planned.append((record, stamp_text(record.read_bytes().decode("utf-8"), rel, version)))
+            content = stamp_text(record.read_bytes().decode("utf-8"), rel, version)
             expected[rel] = {**data, "bmod": {**data["bmod"], "version": version}}
+            if tomllib.loads(content) != expected[rel]:
+                raise StampError(f"{rel}: stamping would change something other than the version")
+            planned.append((record, content))
 
         for path, content in planned:
             try:

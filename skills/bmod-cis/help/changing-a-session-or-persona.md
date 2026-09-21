@@ -21,4 +21,4 @@ Name and title are fixed. A user who wants a different name needs a custom agent
 
 ## Party mode follows
 
-A persona's customized name, title, and icon carry into party mode when its skill is installed. Its voice there comes from the module's roster, so a customized style or principles do not.
+A persona's customized icon carries into party mode when its skill is installed. Its voice there comes from the module's roster, so a customized style or principles do not.

@@ -75,7 +75,7 @@ Activation is complete. Begin the workflow below.
 ## Behavioral Constraints
 
 - Do not give time estimates.
-- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
+- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding. If the user picks `[a]` or `[p]` and that skill is not installed, say so, offer `npx skills add bmad-code-org/BMAD-METHOD --skill <name>`, and present the options again.
 
 ## Facilitation Principles
 
