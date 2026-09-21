@@ -12,17 +12,16 @@
 
 The Creative Intelligence Suite (CIS) extends BMad Method with tools for the fuzzy front-end of development—where ideas are born, problems are reframed, and solutions emerge through structured creativity.
 
-## Modules Included
+## The Agents
 
-| Agent/Workflow | Purpose |
-|---------------|---------|
-| **Innovation Strategist** | Identify disruption opportunities and business model innovation |
-| **Design Thinking Coach** | Human-centered design through empathy, ideation, and prototyping |
-| **Brainstorming Coach** | Facilitate creative ideation sessions with proven techniques |
-| **Problem Solver** | Systematic problem diagnosis and root cause analysis |
-| **Creative Problem Solver** | Generate creative solutions using lateral thinking |
-| **Storyteller** | Craft compelling narratives for products and features |
-| **Presentation Master** | Structure and deliver persuasive presentations |
+| Agent | Skill | What they bring |
+|-------|-------|-----------------|
+| **Carson**, Brainstorming Coach | `bmad-cis-agent-brainstorming-coach` | Guided ideation that pushes past the obvious ideas |
+| **Maya**, Design Thinking Coach | `bmad-cis-agent-design-thinking-coach` | Human-centered design through empathy, ideation, and prototyping |
+| **Dr. Quinn**, Creative Problem Solver | `bmad-cis-agent-creative-problem-solver` | Root cause diagnosis, then solutions that hold |
+| **Victor**, Innovation Strategist | `bmad-cis-agent-innovation-strategist` | Disruption opportunities and business model innovation |
+| **Sophia**, Storyteller | `bmad-cis-agent-storyteller` | Narratives built on proven story frameworks |
+| **Caravaggio**, Presentation Expert | `bmad-cis-agent-presentation-master` | Plans and critiques decks, pitches, talks, and visuals |
 
 ## Installation
 
@@ -33,7 +32,7 @@ npx skills add bmad-code-org/BMAD-METHOD --skill bmad
 npx skills add bmad-code-org/bmad-module-creative-intelligence-suite
 ```
 
-Then ask your agent to run `bmad setup` in the project. `bmad doctor` reports anything a skill still needs. To install one skill, add `--skill <name>`.
+Then ask your agent to run `bmad setup` in the project. `bmad status` reports anything a skill still needs. To install one skill, add `--skill <name>` and include `bmod-cis`, the module's record: it carries the help and the party roster for every CIS skill.
 
 ## Quick Start
 
@@ -57,7 +56,7 @@ Each skill also has an agent persona, such as `bmad-cis-agent-storyteller`, for 
 | Designing for users | `bmad-cis-design-thinking` |
 | Finding market gaps | `bmad-cis-innovation-strategy` |
 | Telling your product story | `bmad-cis-storytelling` |
-| Preparing a pitch | `bmad-cis-agent-presentation-master` |
+| Planning or critiquing a pitch deck | `bmad-cis-agent-presentation-master` |
 
 ## Example: Brainstorming Session
 

@@ -4,7 +4,7 @@ name: Quality & Validation
 # - Prettier (formatting)
 # - ESLint (linting)
 # - markdownlint (markdown quality)
-# - bmad-meta sync (shared help and roster copies match bmad-meta/)
+# - bmod files (every skills/*/bmod.toml, the module record, its help and roster)
 
 "on":
   pull_request:
@@ -66,14 +66,24 @@ jobs:
       - name: markdownlint
         run: npm run lint:md
 
-  bmad-meta:
+  bmod:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout BMAD-METHOD, which owns the runtime that reads bmod files
+        uses: actions/checkout@v4
+        with:
+          repository: bmad-code-org/BMAD-METHOD
+          ref: dev
+          path: .bmad-method
+
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Shared bmad-meta copies match
-        run: uv run tools/sync_knowledge.py
+      - name: This repository's bmod checks
+        run: uv run --python 3.11 tools/stamp_release.py --check
+
+      - name: The runtime's bmod checks
+        run: uv run .bmad-method/tools/validate_manifests.py --project-root .

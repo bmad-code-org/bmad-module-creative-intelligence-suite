@@ -1,8 +1,8 @@
 # The `cis` module's roster: the people it offers and the groups they form.
-# Edited here and copied by tools/sync_knowledge.py into every skill whose manifest
-# names it under `roster`, so it exists whichever part of the module is installed.
-# bmad-party-mode is the first reader, and the fields are the ones it already uses
-# for its own members and groups.
+# It sits beside `bmod.toml` and is found by its name, so it is installed once,
+# with the module record. `_bmad/scripts/roster.py` reads it for bmad-party-mode
+# and any other skill that casts personas. The fields are the ones party mode
+# uses for its own members and groups.
 #
 # A member with `skill` is an installed agent: it joins the default room only when
 # that skill is installed, and its name, title and icon follow the skill's

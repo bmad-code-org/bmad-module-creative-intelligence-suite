@@ -62,11 +62,13 @@ Activation is complete. Begin the workflow below.
 
 - `template_file` = `./template.md`
 - `design_methods_file` = `./design-methods.csv`
-- `default_output_file` = `{output_folder}/design-thinking-{date}.md`
+- `default_output_file` = `{output_folder}/design-thinking-{topic_slug}-{date}.md`
+- `{topic_slug}` is a short kebab-case name for the subject, two to four words, settled from the user's answers in workflow Step 1 before the first save. `{date}` is `YYYY-MM-DD`.
+- If `{default_output_file}` already exists, ask whether to continue that document or start a new one. For a new one, append `-2`, `-3`, and so on. Never overwrite an earlier session's document.
 
 ## Inputs
 
-- If the caller provides context via the data attribute, load it before workflow Step 1 and use it to ground the session.
+- If the user names a document or the caller passes one (research, notes, a brief, guidelines), read it before workflow Step 1 and use it to ground the session. If none is given, ask once in Step 1 whether there is one.
 - Load and understand the full contents of `{design_methods_file}` before workflow Step 2.
 - Use `{template_file}` as the structure when writing `{default_output_file}`.
 
@@ -97,7 +99,7 @@ Ask the user about their design challenge:
 - What does success look like for this project?
 - What existing research or context should we consider?
 
-Load any context data provided via the data attribute.
+Read any document the user named or the caller passed.
 
 Create a clear design challenge statement.
 

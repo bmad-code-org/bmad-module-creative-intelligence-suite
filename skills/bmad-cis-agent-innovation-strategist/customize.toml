@@ -34,3 +34,8 @@ principles = [
 code = "IS"
 description = "Identify disruption opportunities and architect business-model innovation"
 skill = "bmad-cis-innovation-strategy"
+
+[[agent.menu]]
+code = "BS"
+description = "Brainstorm innovation opportunities in a guided session"
+skill = "bmad-brainstorming"
