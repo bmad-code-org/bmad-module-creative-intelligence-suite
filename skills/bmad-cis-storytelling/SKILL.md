@@ -62,19 +62,20 @@ Activation is complete. Begin the workflow below.
 
 - `template_file` = `./template.md`
 - `story_frameworks_file` = `./story-types.csv`
-- `default_output_file` = `{output_folder}/story-{date}.md`
+- `default_output_file` = `{output_folder}/story-{topic_slug}-{date}.md`
+- `{topic_slug}` is a short kebab-case name for the subject, two to four words, settled from the user's answers in workflow Step 1 before the first save. `{date}` is `YYYY-MM-DD`.
+- If `{default_output_file}` already exists, ask whether to continue that document or start a new one. For a new one, append `-2`, `-3`, and so on. Never overwrite an earlier session's document.
 
 ## Inputs
 
-- If the caller provides context via the data attribute, load it before workflow Step 1 and use it to ground the storytelling session.
-- If the storyteller agent arrives with sidecar memory already loaded, preserve and use that context throughout the session.
+- If the user names a document or the caller passes one (research, notes, a brief, guidelines), read it before workflow Step 1 and use it to ground the storytelling session. If none is given, ask once in Step 1 whether there is one.
 - Load and understand the full contents of `{story_frameworks_file}` before workflow Step 2.
 - Use `{template_file}` as the structure when writing `{default_output_file}`.
 
 ## Behavioral Constraints
 
 - Do not give time estimates.
-- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
+- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding. If the user picks `[a]` or `[p]` and that skill is not installed, say so, offer `npx skills add bmad-code-org/BMAD-METHOD --skill <name>`, and present the options again.
 
 ## Facilitation Principles
 
@@ -90,11 +91,11 @@ Activation is complete. Begin the workflow below.
 <workflow>
 
 <step n="1" goal="Story context setup">
-Check whether context data was provided with the workflow invocation.
+Check whether the user named a document or the caller passed one.
 
-If context data was passed:
+If there is one:
 
-- Load the context document from the provided data file path.
+- Read the document.
 - Study the background information, brand details, or subject matter.
 - Use the provided context to inform story development.
 - Acknowledge the focused storytelling goal.
@@ -114,34 +115,13 @@ If no context data was provided:
 </step>
 
 <step n="2" goal="Select story framework">
-Load story frameworks from `{story_frameworks_file}`.
+Load story frameworks from `{story_frameworks_file}`. Each row has `category`, `story_type`, `name`, `description`, and pipe-separated `key_questions`.
 
-Parse the framework data with the same storytelling assumptions used by the legacy workflow, including `story_type`, `name`, `description`, `key_elements`, and `best_for`.
+Based on the context from Step 1, pick the three to five frameworks that best fit the purpose and audience, drawing on every category in the file. Present them as a numbered list with each one's `name`, its `description`, and one line on why it fits this story.
 
-Based on the context from Step 1, present framework options:
+Then list the file's categories (transformation, strategic, persuasive, analytical, emotional) and offer to show every framework in any of them, so the user can reach all of them.
 
-I can help craft your story using these proven narrative frameworks:
-
-**Transformation Narratives:**
-
-1. **Hero's Journey** - Classic transformation arc with adventure and return
-2. **Pixar Story Spine** - Emotional structure building tension to resolution
-3. **Customer Journey Story** - Before/after transformation narrative
-4. **Challenge-Overcome Arc** - Dramatic obstacle-to-victory structure
-
-**Strategic Narratives:**
-
-5. **Brand Story** - Values, mission, and unique positioning
-6. **Pitch Narrative** - Persuasive problem-to-solution structure
-7. **Vision Narrative** - Future-focused aspirational story
-8. **Origin Story** - Foundational narrative of how it began
-
-**Specialized Narratives:**
-
-9. **Data Storytelling** - Transform insights into compelling narrative
-10. **Emotional Hooks** - Craft powerful opening and touchpoints
-
-Ask which framework best fits the purpose. Accept `1-10` or a request for recommendation.
+Ask which framework best fits the purpose. Accept a number, a framework name, or a request for recommendation.
 
 If the user asks for a recommendation:
 
@@ -166,9 +146,9 @@ Keep these storytelling principles active:
 
 Based on the selected framework:
 
-- Reference `key_elements` from the selected `story_type` in the framework data.
-- Parse pipe-separated `key_elements` into individual components.
-- Guide the user through each element with targeted questions.
+- Take the `key_questions` of the selected `story_type` from the framework data.
+- Split the pipe-separated `key_questions` into individual questions.
+- Guide the user through each one, adding targeted follow-ups.
 
 Framework-specific guidance:
 

@@ -62,18 +62,20 @@ Activation is complete. Begin the workflow below.
 
 - `template_file` = `./template.md`
 - `design_methods_file` = `./design-methods.csv`
-- `default_output_file` = `{output_folder}/design-thinking-{date}.md`
+- `default_output_file` = `{output_folder}/design-thinking-{topic_slug}-{date}.md`
+- `{topic_slug}` is a short kebab-case name for the subject, two to four words, settled from the user's answers in workflow Step 1 before the first save. `{date}` is `YYYY-MM-DD`.
+- If `{default_output_file}` already exists, ask whether to continue that document or start a new one. For a new one, append `-2`, `-3`, and so on. Never overwrite an earlier session's document.
 
 ## Inputs
 
-- If the caller provides context via the data attribute, load it before workflow Step 1 and use it to ground the session.
+- If the user names a document or the caller passes one (research, notes, a brief, guidelines), read it before workflow Step 1 and use it to ground the session. If none is given, ask once in Step 1 whether there is one.
 - Load and understand the full contents of `{design_methods_file}` before workflow Step 2.
 - Use `{template_file}` as the structure when writing `{default_output_file}`.
 
 ## Behavioral Constraints
 
 - Do not give time estimates.
-- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding.
+- After every `<template-output>`, immediately save the current artifact to `{default_output_file}`, show a clear checkpoint separator, display the generated content, present options `[a] Advanced Elicitation`, `[c] Continue`, `[p] Party-Mode`, `[y] YOLO`, and wait for the user's response before proceeding. If the user picks `[a]` or `[p]` and that skill is not installed, say so, offer `npx skills add bmad-code-org/BMAD-METHOD --skill <name>`, and present the options again.
 
 ## Facilitation Principles
 
@@ -97,7 +99,7 @@ Ask the user about their design challenge:
 - What does success look like for this project?
 - What existing research or context should we consider?
 
-Load any context data provided via the data attribute.
+Read any document the user named or the caller passed.
 
 Create a clear design challenge statement.
 

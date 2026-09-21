@@ -1,0 +1,24 @@
+[bmod]
+code = "cis"
+version = "0.4.0-next"
+update_source = "github:bmad-code-org/bmad-module-creative-intelligence-suite/skills"
+skills = [
+  "bmad-cis-agent-brainstorming-coach",
+  "bmad-cis-agent-creative-problem-solver",
+  "bmad-cis-agent-design-thinking-coach",
+  "bmad-cis-agent-innovation-strategist",
+  "bmad-cis-agent-presentation-master",
+  "bmad-cis-agent-storyteller",
+  "bmad-cis-design-thinking",
+  "bmad-cis-innovation-strategy",
+  "bmad-cis-problem-solving",
+  "bmad-cis-storytelling",
+]
+required_skills = [{ skill = "bmad", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }]
+recommended_skills = [
+  { skill = "bmad-advanced-elicitation", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+  { skill = "bmad-brainstorming", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+  { skill = "bmad-customize", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+  { skill = "bmad-forge-idea", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+  { skill = "bmad-party-mode", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+]

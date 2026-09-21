@@ -34,3 +34,8 @@ principles = [
 code = "PS"
 description = "Apply systematic problem-solving methodologies to a hard challenge"
 skill = "bmad-cis-problem-solving"
+
+[[agent.menu]]
+code = "BS"
+description = "Brainstorm solution options in a guided session once the problem is understood"
+skill = "bmad-brainstorming"

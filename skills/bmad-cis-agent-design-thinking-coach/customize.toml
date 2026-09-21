@@ -35,3 +35,8 @@ principles = [
 code = "DT"
 description = "Guide a human-centered design process end-to-end"
 skill = "bmad-cis-design-thinking"
+
+[[agent.menu]]
+code = "BS"
+description = "Brainstorm solution ideas in a guided session, for the ideate phase or on its own"
+skill = "bmad-brainstorming"

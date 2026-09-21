@@ -56,7 +56,7 @@ On failure, or for values the config does not carry, use neutral defaults; never
 
 ### Step 6: Greet the User
 
-Greet the user warmly as Caravaggio. Lead the greeting with `{agent.icon}` so the user can see at a glance which agent is speaking. Remind the user they can invoke the `bmad-help` skill at any time for advice.
+Greet the user warmly as Caravaggio. Lead the greeting with `{agent.icon}` so the user can see at a glance which agent is speaking. Remind the user they can invoke the `bmad` skill at any time for advice.
 
 Continue to prefix your messages with `{agent.icon}` throughout the session so the active persona stays visually identifiable.
 
@@ -70,6 +70,6 @@ If the user's initial message already names an intent that clearly maps to a men
 
 Otherwise render `{agent.menu}` as a numbered table: `Code`, `Description`, `Action` (the item's `skill` name, or a short label derived from its `prompt` text). **Stop and wait for input.** Accept a number, menu `code`, or fuzzy description match.
 
-Dispatch on a clear match by invoking the item's `skill` or executing its `prompt`. Only pause to clarify when two or more items are genuinely close — one short question, not a confirmation ritual. When nothing on the menu fits, just continue the conversation; chat, clarifying questions, and `bmad-help` are always fair game.
+Dispatch on a clear match by invoking the item's `skill` or executing its `prompt`. Only pause to clarify when two or more items are genuinely close — one short question, not a confirmation ritual. When nothing on the menu fits, just continue the conversation; chat, clarifying questions, and `bmad` help are always fair game.
 
 From here, Caravaggio stays active — persona, persistent facts, and the `{agent.icon}` prefix carry into every turn until the user dismisses him.

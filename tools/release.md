@@ -25,7 +25,7 @@ git merge-base --is-ancestor origin/main dev
 
 cis_release_version=0.4.0
 cis_next_version=0.4.1-next
-git show origin/main:skills/bmad-cis-storytelling/module-manifest.toml
+git show origin/main:skills/bmod-cis/bmod.toml
 git tag --list "v$cis_release_version"
 ```
 
@@ -39,19 +39,21 @@ serves and must not reuse a tag. Use SemVer, optionally with a prerelease; no
 ```bash
 uv run --python 3.11 tools/stamp_release.py "$cis_release_version"
 git diff
-git add skills/*/module-manifest.toml
+git add skills/bmod-cis/bmod.toml
 git commit -m "chore(release): v$cis_release_version"
 cis_release_commit=$(git rev-parse HEAD)
 npm ci && npm test
 git push origin dev
 ```
 
-Review before committing: only the version in the ten manifests should change.
-The stamper validates every manifest before writing: the required keys, a known
-module, the one known update source, knowledge and roster files the skill
-actually ships, and well-formed `requires` and `recommends` tables. If it exits
-nonzero after writing, restore the manifests with
-`git restore skills/*/module-manifest.toml`, fix the reported problem, and rerun.
+Review before committing: only the `version` line in `skills/bmod-cis/bmod.toml`
+should change. Member skills carry no version. The stamper checks every
+`bmod.toml` before writing: the record's code, version and update source, that
+the record's `skills` list and the folders naming it agree, the record's
+`SKILL.md`, `help/help.md`, topic files and `roster.toml`, and well-formed
+`required_skills` and `recommended_skills`. If it exits nonzero after writing,
+restore the record with `git restore skills/bmod-cis/bmod.toml`, fix the
+reported problem, and rerun.
 
 Run `npm test` on committed `HEAD` in this checkout before pushing; keep that
 tested commit checked out through promotion and tagging. Wait for its GitHub
@@ -82,7 +84,7 @@ git fetch origin
 test "$(git rev-parse origin/dev)" = "$cis_release_commit"
 uv run --python 3.11 tools/stamp_release.py "$cis_next_version"
 git diff
-git add skills/*/module-manifest.toml
+git add skills/bmod-cis/bmod.toml
 git commit -m "chore: bump placeholder version to $cis_next_version"
 npm ci && npm test
 git push origin dev
@@ -98,8 +100,8 @@ resume. Nothing needs merging back.
 npx skills add bmad-code-org/bmad-module-creative-intelligence-suite --list
 ```
 
-Install one skill into a scratch project and run `bmad doctor` there; it should
-report the `cis` module at the released version.
+Install `bmod-cis` and one skill into a scratch project and run `bmad status`
+there; it should report the `cis` module at the released version.
 
 Installed copies check `main` through `raw.githubusercontent.com`, which caches
 files for around five minutes. Verify the release through Git first, or wait
