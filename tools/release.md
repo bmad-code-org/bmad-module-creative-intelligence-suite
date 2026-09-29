@@ -34,10 +34,20 @@ serves and must not reuse a tag. Use SemVer, optionally with a prerelease; no
 `-dev` or build metadata (`+...`). The next placeholder is the next patch with
 `-next`. The stamper enforces the version syntax, not release history.
 
+The stamper ships with the `bmad` skill in BMAD-METHOD. Run it from a temporary BMAD-METHOD clone at the commit the `bmod` job in `.github/workflows/quality.yaml` pins, so the release and CI apply the same checks:
+
+```bash
+bmad_method_sha=$(sed -n 's#.*bmad-code-org/BMAD-METHOD@\([0-9a-f]\{40\}\).*#\1#p' .github/workflows/quality.yaml)
+bmad_method=$(mktemp -d)
+git clone --quiet https://github.com/bmad-code-org/BMAD-METHOD.git "$bmad_method"
+git -C "$bmad_method" switch --quiet --detach "$bmad_method_sha"
+stamper="$bmad_method/skills/bmad/scripts/stamp_release.py"
+```
+
 ## 2. Stamp and push dev
 
 ```bash
-uv run --python 3.11 tools/stamp_release.py "$cis_release_version"
+uv run --python 3.11 "$stamper" "$cis_release_version" --project-root .
 git diff
 git add skills/bmod-cis/bmod.toml
 git commit -m "chore(release): v$cis_release_version"
@@ -46,14 +56,7 @@ npm ci && npm test
 git push origin dev
 ```
 
-Review before committing: only the `version` line in `skills/bmod-cis/bmod.toml`
-should change. Member skills carry no version. The stamper checks every
-`bmod.toml` before writing: the record's code, version and update source, that
-the record's `skills` list and the folders naming it agree, the record's
-`SKILL.md`, `help/help.md`, topic files and `roster.toml`, and well-formed
-`required_skills` and `recommended_skills`. If it exits nonzero after writing,
-restore the record with `git restore skills/bmod-cis/bmod.toml`, fix the
-reported problem, and rerun.
+Review before committing: only the `version` line in `skills/bmod-cis/bmod.toml` should change. Member skills carry no version. Before writing, the stamper runs the same bmod checks as the `bmod` CI job and writes nothing if any fails. If it exits nonzero after writing, restore the record with `git restore skills/bmod-cis/bmod.toml`, fix the reported problem, and rerun.
 
 Run `npm test` on committed `HEAD` in this checkout before pushing; keep that
 tested commit checked out through promotion and tagging. Wait for its GitHub
@@ -82,7 +85,7 @@ unreviewed changes in the release.
 ```bash
 git fetch origin
 test "$(git rev-parse origin/dev)" = "$cis_release_commit"
-uv run --python 3.11 tools/stamp_release.py "$cis_next_version"
+uv run --python 3.11 "$stamper" "$cis_next_version" --project-root .
 git diff
 git add skills/bmod-cis/bmod.toml
 git commit -m "chore: bump placeholder version to $cis_next_version"
