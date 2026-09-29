@@ -74,4 +74,4 @@ jobs:
 
       # Pinned to a BMAD-METHOD dev commit until 6.13.0 is tagged; tools/release.md stamps from the same SHA.
       - name: Validate bmod files
-        uses: bmad-code-org/BMAD-METHOD@0f755e276973e1fa79d3caf28a24ce207c440071
+        uses: bmad-code-org/BMAD-METHOD@794c264bbd9d559337b859729c98957b8faac481
