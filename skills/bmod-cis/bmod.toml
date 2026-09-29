@@ -22,3 +22,5 @@ recommended_skills = [
   { skill = "bmad-forge-idea", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
   { skill = "bmad-party-mode", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
 ]
+pre_install_message = ""
+post_install_message = ""
