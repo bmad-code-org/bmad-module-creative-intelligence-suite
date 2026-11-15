@@ -14,13 +14,13 @@ skills = [
   "bmad-cis-problem-solving",
   "bmad-cis-storytelling",
 ]
-required_skills = [{ skill = "bmad", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" }]
+required_skills = [{ skill = "bmad", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" }]
 recommended_skills = [
-  { skill = "bmad-advanced-elicitation", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
-  { skill = "bmad-brainstorming", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
-  { skill = "bmad-customize", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
-  { skill = "bmad-forge-idea", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
-  { skill = "bmad-party-mode", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills" },
+  { skill = "bmad-advanced-elicitation", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" },
+  { skill = "bmad-brainstorming", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" },
+  { skill = "bmad-customize", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" },
+  { skill = "bmad-forge-idea", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" },
+  { skill = "bmad-party-mode", version = "6.13.0", source = "github:bmad-code-org/BMAD-METHOD/skills/core-tools" },
 ]
 pre_install_message = ""
 post_install_message = ""

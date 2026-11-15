@@ -28,7 +28,7 @@ The Creative Intelligence Suite (CIS) extends BMad Method with tools for the fuz
 CIS installs as plain skills. Install the `bmad` hub skill first, then CIS:
 
 ```bash
-npx skills add bmad-code-org/BMAD-METHOD --skill bmad
+npx skills add bmad-code-org/BMAD-METHOD --skill bmad bmod-core-tools
 npx skills add bmad-code-org/bmad-module-creative-intelligence-suite
 ```
 
